@@ -1,7 +1,9 @@
 <script>
-    import {HeroSection} from "$components"
-    import {AboutMeSection} from "$components"
+	import { HeroSection, AboutMeSection, MyWorkSection } from '$components';
+	const { data } = $props();
+	let { workExperience, projects } = data;
 </script>
 
-<HeroSection/>
-<AboutMeSection/>
+<HeroSection />
+<AboutMeSection {workExperience} />
+<MyWorkSection {projects} />
