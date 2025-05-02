@@ -1,0 +1,66 @@
+<script lang="ts">
+	import type { ProcessedTextContent } from '$components/types/sanity.js';
+
+	let { data } = $props();
+    $inspect(data)
+
+	const { project } = data;
+	function getTagFromStyle(contentStyle: ProcessedTextContent['style']): string {
+		if (contentStyle === 'normal') {
+			return 'p';
+		}
+		return contentStyle;
+	}
+</script>
+
+<main class="default-margin work-page">
+	<h4>{project.company}</h4>
+	<div class="underscore"></div>
+	<h2 class="mb-s">{project.name}</h2>
+	<img class="project-image" src={project.projectImageUrl} alt="" />
+	<div class="project-container mt-m">
+		<div class="meta-data">
+			<h3 class="semi-bold">Date</h3>
+			<p>{project.dateAccomplished.slice(0, 7)}</p>
+			<h3 class="semi-bold mt-m">Tech Stack</h3>
+			<ul>
+				{#each project.stack as skill}
+					<li>{skill}</li>
+				{/each}
+			</ul>
+		</div>
+		<div class="project-text">
+			{#each project.content as block}
+				{#if block.type === 'text'}
+					<svelte:element this={getTagFromStyle(block.style)}>
+						{block.textToRender}
+					</svelte:element>
+				{/if}
+			{/each}
+		</div>
+	</div>
+</main>
+
+
+<style>
+    .work-page {
+        padding-top:80px;
+        padding-bottom: 140px;
+    }
+    .project-image{
+        width:100%;
+        max-height:450px;
+        object-fit:cover;
+        border-radius: 30px ;
+    }
+.content-image{
+    width:100%
+}
+.project-container{
+    display:flex;
+}
+.meta-data{
+    min-width:200px;
+}
+
+</style>

@@ -88,7 +88,7 @@ interface ProcessedImageContent{
 
 interface ProcessedTextContent {
   type:"text";
-  style?:'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote';
+  style:'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote';
   textToRender:string;
 
 }
@@ -98,3 +98,9 @@ interface ProcessedImageContent{
   url:string;
 }
 
+
+interface Skill {
+  name: string
+  iconClass: string
+  _key: string
+}
