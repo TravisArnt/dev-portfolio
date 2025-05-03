@@ -2,7 +2,6 @@
 	import type { ProcessedTextContent } from '$components/types/sanity.js';
 
 	let { data } = $props();
-    $inspect(data)
 
 	const { project } = data;
 	function getTagFromStyle(contentStyle: ProcessedTextContent['style']): string {

@@ -22,4 +22,5 @@ export const load: PageLoad = async () => {
 		projects,
 		skills
 	};
+	
 };
